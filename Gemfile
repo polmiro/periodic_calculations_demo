@@ -13,9 +13,11 @@ gem 'jbuilder', '~> 1.2'
 gem 'flot-rails'
 gem 'haml-rails'
 gem 'hike'
+gem 'virtus'
 gem 'periodic_calculations', :path => '../periodic_calculations'
 gem 'bootstrap-sass', '~> 3.0.2.0'
-gem 'virtus'
+gem 'bootstrap-datepicker-rails'
+gem 'pjax_rails'
 
 group :doc do
   gem 'sdoc', require: false

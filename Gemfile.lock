@@ -38,6 +38,8 @@ GEM
       descendants_tracker (~> 0.0.1)
       ice_nine (~> 0.9)
     backports (3.3.5)
+    bootstrap-datepicker-rails (1.1.1.10)
+      railties (>= 3.0)
     bootstrap-sass (3.0.2.1)
       sass (~> 3.2)
     builder (3.1.4)
@@ -89,6 +91,8 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     pg (0.17.0)
+    pjax_rails (0.3.4)
+      jquery-rails
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -160,6 +164,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-datepicker-rails
   bootstrap-sass (~> 3.0.2.0)
   coffee-rails
   debugger
@@ -170,6 +175,7 @@ DEPENDENCIES
   jquery-rails
   periodic_calculations!
   pg
+  pjax_rails
   rails (= 4.0.2)
   rspec-rails
   sass-rails

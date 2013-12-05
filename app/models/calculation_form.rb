@@ -7,8 +7,8 @@ class CalculationForm
   attribute :interval_unit, Symbol
   attribute :target_column, String, default: :price
   attribute :timestamp_column, String
-  attribute :start_time, Time, default: lambda { |form, attribute| 10.days.ago }
-  attribute :end_time, Time, default: lambda { |form, attribute| 10.days.from_now }
+  attribute :start_time, Date, default: lambda { |form, attribute| 10.days.ago }
+  attribute :end_time, Date, default: lambda { |form, attribute| 10.days.from_now }
   attribute :cumulative, Boolean
 
   def options
