@@ -1,0 +1,28 @@
+= plot_series(@data)
+
+#chartPlaceholder{ style: 'height: 500px; width: 500px;' }
+
+:coffee
+  chartElem = $("#chartPlaceholder")
+  chartOptions =
+    yaxis:
+      min: 0,
+      tickDecimals: 0
+    xaxis:
+      mode: "time",
+    series:
+      lines:
+        show: true
+      points:
+        show: true
+    colors: ["#00689e"]
+    grid:
+      borderWidth: 1
+      borderColor: "#e3e3e3"
+      backgroundColor: "#fff"
+      hoverable: true
+      mouseActiveRadius: 50
+
+  chartData = [#{plot_series(@data)}]
+
+  $.plot(chartElem, chartData, chartOptions)

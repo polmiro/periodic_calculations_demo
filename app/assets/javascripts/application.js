@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.flot
+//= require jquery.flot.time
 //= require_tree .
