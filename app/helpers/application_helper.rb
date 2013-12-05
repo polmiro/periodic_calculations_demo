@@ -10,4 +10,15 @@ module ApplicationHelper
       [time, v]
     end.sort.map {|p| "[#{p[0] * 1000}, #{p[1]}]" }.join(", ") + "]"
   end
+
+  def menu_class(label)
+    active = case label
+    when 'demo'
+      controller_name == 'demo'
+    when 'data'
+      controller_name == 'purchases'
+    end
+
+    active ? 'active' : ''
+  end
 end

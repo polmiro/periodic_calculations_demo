@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title PeriodicCalculationsDemo
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+      = javascript_include_tag "application", "data-turbolinks-track" => true
+      = csrf_meta_tags
+  %body
+    .container
+      .header
+        %ul.nav.nav-pills.pull-right
+          %li{ class: menu_class('demo') }
+            %a{:href => root_path } Demo
+          %li{ class: menu_class('data') }
+            %a{:href => purchases_path } Data
+        %h3.text-muted Periodic Calculations Demo
+      = yield
+      .footer
+        %p © Pol Miro 2013

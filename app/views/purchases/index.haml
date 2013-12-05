@@ -1,0 +1,19 @@
+.row.marketing
+  .col-lg-12
+    %table.table
+      %thead
+        %tr
+          %th Purchase Id
+          %th Price
+          %th Discount
+          %th Paid at
+          %th Created at
+      %tbody
+        - @purchases.each do |purchase|
+          %tr
+            %td= purchase.id
+            %td= purchase.price
+            %td= purchase.discount
+            %td= purchase.created_at
+            %td= purchase.paid_at
+
