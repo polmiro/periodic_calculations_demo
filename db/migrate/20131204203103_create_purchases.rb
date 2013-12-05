@@ -3,6 +3,7 @@ class CreatePurchases < ActiveRecord::Migration
     create_table :purchases do |t|
       t.timestamp :paid_at
       t.integer :price
+      t.integer :discount
 
       t.timestamps
     end

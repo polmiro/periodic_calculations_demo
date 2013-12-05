@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require jquery.flot
 //= require jquery.flot.time
+//= require bootstrap
 //= require_tree .

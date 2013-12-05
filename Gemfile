@@ -14,6 +14,8 @@ gem 'flot-rails'
 gem 'haml-rails'
 gem 'hike'
 gem 'periodic_calculations', :path => '../periodic_calculations'
+gem 'bootstrap-sass', '~> 3.0.2.0'
+gem 'virtus'
 
 group :doc do
   gem 'sdoc', require: false

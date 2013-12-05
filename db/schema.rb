@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20131204203103) do
   create_table "purchases", force: true do |t|
     t.datetime "paid_at"
     t.integer  "price"
+    t.integer  "discount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

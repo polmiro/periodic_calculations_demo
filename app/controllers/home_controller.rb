@@ -1,11 +1,21 @@
 class HomeController < ApplicationController
   def index
-    start_time = 10.days.ago
-    end_time = 10.days.from_now
-    options = { :cumulative => true }
+    @form = CalculationForm.new(form_params)
 
     @data = Purchase
       .where("price > 0")
-      .periodic_sum(:price, start_time, end_time, options)
+      .periodic_calculation(
+        @form.operation.to_sym,
+        @form.target_column,
+        @form.start_time,
+        @form.end_time,
+        @form.options
+      )
+  end
+
+  private
+
+  def form_params
+    params[:calculation_form] ? params[:calculation_form].permit! : {}
   end
 end
