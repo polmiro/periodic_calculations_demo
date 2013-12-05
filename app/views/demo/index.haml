@@ -3,33 +3,49 @@
     %h4 Graph
     #pjax-container
       = render file: 'demo/chart'
-  .col-lg-4.well
-    = form_for @form, as: :form, url: root_path, :html => { method: 'GET', class: 'form-horizontal', role: 'form', 'data-pjax' => true } do |f|
-      .form-group
-        = f.label :operation, "Calculation", class: 'col-sm-6'
-        .col-sm-6
-          = f.select :operation, PeriodicCalculations::QueryOptions::OPERATION, class: 'form-control input-sm'
-      .form-group
-        = f.label :interval_unit, "Interval", class: 'col-sm-6'
-        .col-sm-6
-          = f.select :interval_unit, PeriodicCalculations::QueryOptions::INTERVAL_UNIT, class: 'form-control input-sm'
-      .form-group
-        = f.label :target_column, "Metric", class: 'col-sm-6'
-        .col-sm-6
-          = f.select :target_column, [:price, :discount], class: 'form-control input-sm'
-      .form-group
-        = f.label :timestamp_column, "Timestamp", class: 'col-sm-6'
-        .col-sm-6
-          = f.select :timestamp_column, [:created_at, :paid_at], class: 'form-control input-sm'
-      .form-group
-        = f.label :start_time, "Start", class: 'col-sm-6'
-        .col-sm-6
-          = f.text_field :start_time, 'data-behaviour' => 'datepicker', class: 'form-control input-sm'
-      .form-group
-        = f.label :end_time, "End", class: 'col-sm-6'
-        .col-sm-6
-          = f.text_field :end_time, 'data-behaviour' => 'datepicker', class: 'form-control input-sm'
-      .form-group
-        = f.label :cumulative, class: 'col-sm-6'
-        .col-sm-6
-          = f.check_box :cumulative
+  .col-lg-4
+    %h4 Options
+    .well
+      = form_for @form, as: :form, url: root_path, :html => { method: 'GET', class: 'form-horizontal', role: 'form', 'data-pjax' => true } do |f|
+        .form-group
+          = f.label :operation, "Calculation", class: 'col-sm-6'
+          .col-sm-6
+            = f.select :operation, PeriodicCalculations::QueryOptions::OPERATION, class: 'form-control input-sm'
+        .form-group
+          = f.label :interval_unit, "Interval", class: 'col-sm-6'
+          .col-sm-6
+            = f.select :interval_unit, PeriodicCalculations::QueryOptions::INTERVAL_UNIT, class: 'form-control input-sm'
+        .form-group
+          = f.label :target_column, "Metric", class: 'col-sm-6'
+          .col-sm-6
+            = f.select :target_column, [:price, :discount], class: 'form-control input-sm'
+        .form-group
+          = f.label :timestamp_column, "Timestamp", class: 'col-sm-6'
+          .col-sm-6
+            = f.select :timestamp_column, [:created_at, :paid_at], class: 'form-control input-sm'
+        .form-group
+          = f.label :start_time, "Start", class: 'col-sm-6'
+          .col-sm-6
+            = f.text_field :start_time, 'data-behaviour' => 'datepicker', class: 'form-control input-sm'
+        .form-group
+          = f.label :end_time, "End", class: 'col-sm-6'
+          .col-sm-6
+            = f.text_field :end_time, 'data-behaviour' => 'datepicker', class: 'form-control input-sm'
+        .form-group
+          = f.label :cumulative, class: 'col-sm-6'
+          .col-sm-6
+            = f.check_box :cumulative
+
+.row.marketing
+  %h4 Code
+  %pre
+    :plain
+      @data = Purchase
+        .where("price > 0")
+        .periodic_calculation(
+          #{@form.operation.to_sym},
+          #{@form.target_column},
+          #{@form.start_time.to_time},
+          #{@form.end_time.to_time},
+          #{@form.options}
+        )

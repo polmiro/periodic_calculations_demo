@@ -13,10 +13,8 @@ class CalculationForm
 
   def options
     opts = {
-      :operation => operation,
       :interval_unit => interval_unit,
       :cumulative => cumulative,
-      :target_column => target_column,
       :timestamp_column => timestamp_column
     }
 
