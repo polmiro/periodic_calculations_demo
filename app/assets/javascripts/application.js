@@ -12,18 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.pjax
 //= require jquery.flot
 //= require jquery.flot.time
 //= require bootstrap
 //= require bootstrap-datepicker/core
 //= require_tree .
 
-$.pjax.defaults.scrollTo = false;
-
-$(document).on('submit', 'form[data-pjax]', function(event) {
-  $.pjax.submit(event, '#pjax-container')
-})
 
 $(document).ready(function() {
   $('[data-behaviour=datepicker]').datepicker({

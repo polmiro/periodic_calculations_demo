@@ -1,12 +1,11 @@
 .row.marketing
   .col-lg-8
     %h4 Graph
-    #pjax-container
-      = render file: 'demo/chart'
+    = render file: 'demo/chart'
   .col-lg-4
     %h4 Options
     .well
-      = form_for @form, as: :form, url: root_path, :html => { method: 'GET', class: 'form-horizontal', role: 'form', 'data-pjax' => true } do |f|
+      = form_for @form, as: :form, url: root_path, :html => { method: 'GET', class: 'form-horizontal', role: 'form' } do |f|
         .form-group
           = f.label :operation, "Calculation", class: 'col-sm-6'
           .col-sm-6

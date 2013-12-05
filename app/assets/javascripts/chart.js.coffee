@@ -24,14 +24,5 @@ initializeChart = (elemId) ->
 $(document).ready ->
   initializeChart(chartElemId)
 
-$(document).on 'pjax:send', ->
-  $('#chart_loading').fadeIn()
-
-$(document).on 'pjax:complete', ->
-  $('#chart_loading').fadeOut()
-
-$(document).on 'pjax:success', ->
-  initializeChart(chartElemId)
-
 $(document).on 'change', '#new_form', ->
   $(this).closest('form').submit()
