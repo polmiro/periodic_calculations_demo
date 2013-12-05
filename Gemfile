@@ -17,6 +17,7 @@ gem 'virtus'
 gem 'periodic_calculations', :path => '../periodic_calculations'
 gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'bootstrap-datepicker-rails'
+gem 'highlight_js-rails'
 
 group :doc do
   gem 'sdoc', require: false

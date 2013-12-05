@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require bootstrap-datepicker
+ *= require highlight_js/github
  *= require_tree .
  */

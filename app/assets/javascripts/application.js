@@ -14,10 +14,13 @@
 //= require jquery_ujs
 //= require jquery.flot
 //= require jquery.flot.time
+//= require highlight_js/highlight
+//= require highlight_js/languages/ruby
 //= require bootstrap
 //= require bootstrap-datepicker/core
 //= require_tree .
 
+hljs.initHighlightingOnLoad();
 
 $(document).ready(function() {
   $('[data-behaviour=datepicker]').datepicker({

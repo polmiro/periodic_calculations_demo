@@ -21,4 +21,19 @@ module ApplicationHelper
 
     active ? 'active' : ''
   end
+
+  def map_calculation_name(name)
+    case name
+    when :max
+      :maximum
+    when :min
+      :minimum
+    when :avg
+      :average
+    when :count
+      :count
+    when :sum
+      :sum
+    end
+  end
 end

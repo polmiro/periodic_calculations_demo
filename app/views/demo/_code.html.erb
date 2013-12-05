@@ -1,0 +1,26 @@
+@data = Purchase
+  .where("price > 0")
+  .periodic_calculation(
+    <%= raw form.operation.inspect %>
+    <%= raw form.target_column.inspect %>
+    Time.parse("<%= raw form.start_time.to_time %>"),
+    Time.parse("<%= form.end_time.to_time %>")<% if form.display_options.present? %>,
+    <%= raw form.display_options %>
+    <% else -%>
+
+    <% end %>
+  )
+
+# or
+
+@data = Purchase
+  .where("price > 0")
+  .periodic_<%= map_calculation_name(form.operation.to_sym) %>(
+    <%= raw form.target_column.inspect %>
+    Time.parse("<%= raw form.start_time.to_time %>"),
+    Time.parse("<%= form.end_time.to_time %>")<% if form.display_options.present? %>,
+    <%= raw form.display_options %>
+    <% else -%>
+
+    <% end %>
+  )

@@ -1,7 +1,7 @@
 .row.marketing
   .col-lg-8
     %h4 Graph
-    = render file: 'demo/chart'
+    = render 'chart'
   .col-lg-4
     %h4 Options
     .well
@@ -36,15 +36,7 @@
             = f.check_box :cumulative
 
 .row.marketing
-  %h4 Code
-  %pre
-    :plain
-      @data = Purchase
-        .where("price > 0")
-        .periodic_calculation(
-          #{@form.operation.to_sym},
-          #{@form.target_column},
-          #{@form.start_time.to_time},
-          #{@form.end_time.to_time},
-          #{@form.options}
-        )
+  .col-lg-12
+    %h4 Code
+    %pre
+      %code= render partial: 'code', :locals => { :form => @form}

@@ -22,4 +22,14 @@ class CalculationForm
       value.blank?
     end
   end
+
+  def display_options
+    opts = options.dup
+
+    opts.delete(:interval_unit) if opts[:interval_unit].to_s == 'day'
+    opts.delete(:timestamp_column) if opts[:timestamp_column].to_s == 'created_at'
+    opts.delete(:cumulative) unless opts[:cumulative]
+
+    opts
+  end
 end
