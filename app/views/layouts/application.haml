@@ -14,7 +14,14 @@
             %a{:href => root_path } Demo
           %li{ class: menu_class('data') }
             %a{:href => purchases_path } Data
+
         %h3.text-muted Periodic Calculations Demo
+        %p
+          Periodic Calculations gem allows you to retrieve <b>periodic results of aggregates that can be accumulated over time</b> with PostgreSQL.
+        %p
+          This examples shows how easy it is to retrieve stats using different metrics, aggregates and windows can be used to retrieve the statistics.
+          %br
+          It uses window functions and allows you to avoid using precomputed tables that need to be recurringly updated.
       = yield
       .footer
         %p © Pol Miro 2013
