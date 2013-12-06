@@ -37,6 +37,16 @@
 
 .row.marketing
   .col-lg-12
-    %h4 Code
-    %pre
-      %code= render partial: 'code', :locals => { :form => @form}
+    %ul.nav.nav-tabs
+      %li.active
+        %a{"data-toggle" => "tab", href: "#ruby-code"} Ruby
+      %li
+        %a{"data-toggle" => "tab", href: "#sql-code"} Sql
+    .tab-content
+      #ruby-code.tab-pane.active
+        %pre
+          %code= render partial: 'code', :locals => { :form => @form}
+      #sql-code.tab-pane
+        %pre
+          %code= @data.to_sql
+
