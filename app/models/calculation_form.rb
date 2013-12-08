@@ -1,7 +1,5 @@
 class CalculationForm
   include Virtus.model
-  include ActiveModel::Conversion
-  extend ActiveModel::Naming
 
   attribute :operation, Symbol, default: :count
   attribute :interval_unit, Symbol
