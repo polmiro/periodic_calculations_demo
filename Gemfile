@@ -19,6 +19,7 @@ gem 'periodic_calculations'
 gem 'bootstrap-sass', '~> 3.0.2.0'
 gem 'bootstrap-datepicker-rails'
 gem 'highlight_js-rails'
+gem 'rails_12factor', group: :production
 
 group :doc do
   gem 'sdoc', require: false
