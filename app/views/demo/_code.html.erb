@@ -1,26 +1,24 @@
 @data = Purchase
-  .where("price > 0")
+  .where("price > 0") # custom scope
   .periodic_calculation(
-    <%= raw form.operation.inspect %>
-    <%= raw form.target_column.inspect %>
-    Time.parse("<%= raw form.start_time.to_time %>"),
-    Time.parse("<%= form.end_time.to_time %>")<% if form.display_options.present? %>,
-    <%= raw form.display_options %>
-    <% else -%>
-
-    <% end %>
+    <%= raw form.operation.inspect %>, # operation
+    <%= raw form.target_column.inspect %>, # target column
+    Time.parse("<%= raw form.start_time.to_time %>"), # start time
+    Time.parse("<%= form.end_time.to_time %>")<%= ',' if form.display_options.present? %> # end time
+    <% if form.display_options.present? -%>
+    <%= raw form.display_options %> # options
+    <% end -%>
   )
 
 # or
 
 @data = Purchase
-  .where("price > 0")
+  .where("price > 0") # custom scope
   .periodic_<%= map_calculation_name(form.operation.to_sym) %>(
-    <%= raw form.target_column.inspect %>
-    Time.parse("<%= raw form.start_time.to_time %>"),
-    Time.parse("<%= form.end_time.to_time %>")<% if form.display_options.present? %>,
-    <%= raw form.display_options %>
-    <% else -%>
-
-    <% end %>
+    <%= raw form.target_column.inspect %>, # target_column
+    Time.parse("<%= raw form.start_time.to_time %>"), # start time
+    Time.parse("<%= form.end_time.to_time %>")<%= ',' if form.display_options.present? %> # end time
+    <% if form.display_options.present? -%>
+    <%= raw form.display_options %> # options
+    <% end -%>
   )

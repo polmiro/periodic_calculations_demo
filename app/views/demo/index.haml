@@ -1,4 +1,9 @@
 .row.marketing
+  .col-lg-12
+    %h4 Examples
+    .list-group
+      - examples.each do |title, path|
+        = link_to title, path, class: "list-group-item #{'active' if url_for(params) == path}"
   .col-lg-8
     %h4 Graph
     = render 'chart'

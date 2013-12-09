@@ -1,4 +1,4 @@
-time = Time.now
+time = Time.at(1386562437) # arbitrary time
 
 10.times do |i|
   Purchase.create(
